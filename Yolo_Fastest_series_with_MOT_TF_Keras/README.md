@@ -1,6 +1,17 @@
 # Tensorflow Keras Yolo-Fastest/Yolo-Fastest XL with Model Optimization 
 This repository contains the 80 object categories detection settings of the Yolo-Fastest series models on the [COCO dataset](https://cocodataset.org/#home). It also shows how to train from scratch using Tensorflow Keras and then does the Model Optimization which including of pruning, clustering and quantization. The models architecture are referenced from [dog-qiuqiu/Yolo-Fastest](https://github.com/dog-qiuqiu/Yolo-Fastest). 
 
+We use [Tensorflow Model Optimize Toolkit](https://www.tensorflow.org/model_optimization) to optimize the Yolo-Fastest and Yolo-Fastest XL, which does [Pruning](https://www.tensorflow.org/model_optimization/guide/pruning) , [Clustering](https://www.tensorflow.org/model_optimization/guide/clustering) and [Quantization](https://www.tensorflow.org/model_optimization/guide/quantization/training_comprehensive_guide). And the following is our model  result. You can also deploy the model to HIMAX WE2 by reference the [HimaxWiseEyePlus/ML_FVP_EVALUATION](https://github.com/HimaxWiseEyePlus/ML_FVP_EVALUATION) repository.
+
+|Model         | Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest  | Yolo-Fastest  | Yolo-Fastest XL  | Yolo-Fastest XL  |  Yolo-Fastest   |Yolo-Fastest   |
+| :---         |  :---:         | :---:         |     :---:      |  :---:         |    :---:         | :---:         |  :---:           |:---:         | 
+| `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    |RGB 320x320x3    | RGB 256x256x3    |RGB 256x256x3    |RGB 256x256x3 |RGB 256x256x3 |
+| `COCO AP50`    | 0.338    | 0.338  | 0.239    |0.239    |0.299| 0.299 | 0.209   |0.209        |
+| `vela version`    | 3.9.0    | 3.9.0   | 3.9.0     |3.9.0    |3.9.0  |3.9.0  | 3.9.0    |3.9.0       |
+| `Tatal SRAM(KB)`    | 1602.03           | 820.00(optimise Size)           | 1200.91        |820.00(optimise Size)      |1026.03         | 528.00(optimise Size)            | 768.91           |528.00(optimise Size)        |
+| `Total Off-chip Flash(KB)`    | 1131.09           | 1182.86          | 505.31           |548.70       |1140.09          | 1184.58            | 511.52            |545.64        |
+| `Total cycles  (cycles/batch)`    | 25189173          | 26369181            | 13216617           |13588601        |18067016          | 18684296            | 9097664            |9224696        |
+| `Batch Inference time (inferences/s)`    | 15.88         | 15.17            | 30.26            |29.44        |22.14         | 21.41            | 43.97            |43.36        |
 
 ### Prerequisites
 - Python==3.8.10
