@@ -9,7 +9,7 @@ We use [Tensorflow Model Optimize Toolkit](https://www.tensorflow.org/model_opti
 | :---         |  :---:         | :---:         |     :---:      |  :---:         | :---:         |     :---:      | 
 | `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    | RGB 256x256x3    |RGB 256x256x3    |RGB 256x256x3 
 | `MOT`    | X    | X  | O    | X    | X  | O    |
-| `COCO AP50`    | 0.338    | 0.338  | 0.328   |0.299| 0.299 | 0.289|
+| `COCO AP50`    | 33.8    | 33.8  | 32.8   |29.9| 29.9 | 28.9|
 | `vela version`    | 3.9.0    | 3.9.0   | 3.9.0     | 3.9.0    | 3.9.0   | 3.9.0     |
 | `Optimise SRAM Size by Vela`    | X  |   O   | O    | X  |   O   | O    |
 | `Total SRAM(KB)`    | 1602.03 | 820.00 |  820.00  | 1026.03  | 528.00 | 528.00 |
@@ -23,7 +23,7 @@ We use [Tensorflow Model Optimize Toolkit](https://www.tensorflow.org/model_opti
 | :---         |   :---:      |  :---:         |    :---:         | :---:         |  :---:           |:---:         | 
 | `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    |RGB 256x256x3    |RGB 256x256x3 |RGB 256x256x3 |
 | `MOT`    | X    | X  | O    | X    | X  | O    |
-| `COCO AP50`    | 0.239    |0.239    |0.225 | 0.299 | 0.209   |0.196        |
+| `COCO AP50`    | 23.9    |23.9    |22.5 | 20.9 | 20.9   |19.6        |
 | `vela version`    | 3.9.0     |3.9.0    |3.9.0  |3.9.0  | 3.9.0    |3.9.0       |
 | `Optimise SRAM Size by Vela`    | X  |   O   | O    | X  |   O   | O    |
 | `Total SRAM(KB)`    | 1200.91        |820.00      |820.00          | 768.91   |528.00| 528.00|
