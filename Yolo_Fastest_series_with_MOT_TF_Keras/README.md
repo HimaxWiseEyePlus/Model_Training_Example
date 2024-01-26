@@ -3,15 +3,34 @@ This repository contains the 80 object categories detection settings of the Yolo
 
 We use [Tensorflow Model Optimize Toolkit](https://www.tensorflow.org/model_optimization) and the [Arm vela compiler](https://review.mlplatform.org/plugins/gitiles/ml/ethos-u/ethos-u-vela) to achieved 50% sparsity with minimal accuracy loss when computing with 8-bit quantized weights, significantly reducing the Off-chip flash size and the SRAM size at the Yolo-Fastest and Yolo-Fastest XL, which does [Pruning](https://www.tensorflow.org/model_optimization/guide/pruning) , [Clustering](https://www.tensorflow.org/model_optimization/guide/clustering) and [Quantization](https://www.tensorflow.org/model_optimization/guide/quantization/training_comprehensive_guide). After doing the MOT and vela compiling, the Yolo-Fastest and Yolo-Fastest XL could run on the edge device with good results, such as [HIMAX WE2](https://www.himax.com.tw/zh/products/intelligent-sensing/always-on-smart-sensing/wiseeye2-ai-processor/). You can also deploy the model to HIMAX WE2 by reference the [HimaxWiseEyePlus/ML_FVP_EVALUATION](https://github.com/HimaxWiseEyePlus/ML_FVP_EVALUATION) repository.The following form is our model result.
 
-|Model         | Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest  | Yolo-Fastest  | Yolo-Fastest XL  | Yolo-Fastest XL  |  Yolo-Fastest   |Yolo-Fastest   |
-| :---         |  :---:         | :---:         |     :---:      |  :---:         |    :---:         | :---:         |  :---:           |:---:         | 
-| `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    |RGB 320x320x3    | RGB 256x256x3    |RGB 256x256x3    |RGB 256x256x3 |RGB 256x256x3 |
-| `COCO AP50`    | 0.338    | 0.338  | 0.239    |0.239    |0.299| 0.299 | 0.209   |0.209        |
-| `vela version`    | 3.9.0    | 3.9.0   | 3.9.0     |3.9.0    |3.9.0  |3.9.0  | 3.9.0    |3.9.0       |
-| `Total SRAM(KB)`    | 1602.03           | 820.00(optimise Size)           | 1200.91        |820.00(optimise Size)      |1026.03         | 528.00(optimise Size)            | 768.91           |528.00(optimise Size)        |
-| `Total Off-chip Flash(KB)`    | 1131.09           | 1182.86          | 505.31           |548.70       |1140.09          | 1184.58            | 511.52            |545.64        |
-| `Total cycles  (cycles/batch)`    | 25189173          | 26369181            | 13216617           |13588601        |18067016          | 18684296            | 9097664            |9224696        |
-| `Batch Inference time (inferences/s)`    | 15.88         | 15.17            | 30.26            |29.44        |22.14         | 21.41            | 43.97            |43.36        |
+- Yolo-Fastest XL 
+
+|Model         | Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest XL MOT| Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest XL MOT| 
+| :---         |  :---:         | :---:         |     :---:      |  :---:         | :---:         |     :---:      | 
+| `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    | RGB 256x256x3    |RGB 256x256x3    |RGB 256x256x3 
+| `MOT`    | X    | X  | O    | X    | X  | O    |
+| `COCO AP50`    | 0.338    | 0.338  | 0.328   |0.299| 0.299 | 0.289|
+| `vela version`    | 3.9.0    | 3.9.0   | 3.9.0     | 3.9.0    | 3.9.0   | 3.9.0     |
+| `Optimise Size`    | X  |   O   | O    | X  |   O   | O    |
+| `Total SRAM(KB)`    | 1602.03 | 820.00 |  820.00  | 1026.03  | 528.00 | 528.00 |
+| `Total Off-chip Flash(KB)`    | 1131.09    | 1182.86   | 893.89  | 1140.09 | 1184.58 | 894.80|
+| `Total cycles  (cycles/batch)`| 25189173  | 26369181   | 24168662 |18067016 | 18684296 |16313760|
+| `Batch Inference time (inferences/s)`    | 15.88  | 15.17  | 16.55  |22.14 | 21.41 | 24.52| 
+
+- Yolo-Fastest
+
+|Model         | Yolo-Fastest  | Yolo-Fastest  | Yolo-Fastest MOT  |  Yolo-Fastest   |Yolo-Fastest   |Yolo-Fastest MOT   |
+| :---         |   :---:      |  :---:         |    :---:         | :---:         |  :---:           |:---:         | 
+| `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    |RGB 256x256x3    |RGB 256x256x3 |RGB 256x256x3 |
+| `MOT`    | X    | X  | O    | X    | X  | O    |
+| `COCO AP50`    | 0.239    |0.239    |0.225 | 0.299 | 0.209   |0.196        |
+| `vela version`    | 3.9.0     |3.9.0    |3.9.0  |3.9.0  | 3.9.0    |3.9.0       |
+| `Optimise Size`    | X  |   O   | O    | X  |   O   | O    |
+| `Total SRAM(KB)`    | 1200.91        |820.00      |820.00          | 768.91   |528.00| 528.00|
+| `Total Off-chip Flash(KB)`    | 505.31           |548.70       |429.70   |511.52   |545.64 | 432.28 |
+| `Total cycles  (cycles/batch)`    | 13216617           |13588601        |12803345  |9097664            |9224696        |8559640|
+| `Batch Inference time (inferences/s)`    | 30.26            |29.44        |31.24         | 43.97            |43.36        | 46.73 |
+
 
 ### Prerequisites
 - Python==3.8.10
