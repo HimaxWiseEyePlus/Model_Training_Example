@@ -5,13 +5,13 @@ We use [Tensorflow Model Optimize Toolkit](https://www.tensorflow.org/model_opti
 
 - Yolo-Fastest XL 
 
-|Model         | Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest XL MOT| Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest XL MOT| 
+|`Model`         | Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest XL MOT| Yolo-Fastest XL  | Yolo-Fastest XL | Yolo-Fastest XL MOT| 
 | :---         |  :---:         | :---:         |     :---:      |  :---:         | :---:         |     :---:      | 
 | `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    | RGB 256x256x3    |RGB 256x256x3    |RGB 256x256x3 
 | `MOT`    | X    | X  | O    | X    | X  | O    |
 | `COCO AP50`    | 0.338    | 0.338  | 0.328   |0.299| 0.299 | 0.289|
 | `vela version`    | 3.9.0    | 3.9.0   | 3.9.0     | 3.9.0    | 3.9.0   | 3.9.0     |
-| `Optimise Size`    | X  |   O   | O    | X  |   O   | O    |
+| `Optimise SRAM Size by Vela`    | X  |   O   | O    | X  |   O   | O    |
 | `Total SRAM(KB)`    | 1602.03 | 820.00 |  820.00  | 1026.03  | 528.00 | 528.00 |
 | `Total Off-chip Flash(KB)`    | 1131.09    | 1182.86   | 893.89  | 1140.09 | 1184.58 | 894.80|
 | `Total cycles  (cycles/batch)`| 25189173  | 26369181   | 24168662 |18067016 | 18684296 |16313760|
@@ -19,13 +19,13 @@ We use [Tensorflow Model Optimize Toolkit](https://www.tensorflow.org/model_opti
 
 - Yolo-Fastest
 
-|Model         | Yolo-Fastest  | Yolo-Fastest  | Yolo-Fastest MOT  |  Yolo-Fastest   |Yolo-Fastest   |Yolo-Fastest MOT   |
+|`Model`         | Yolo-Fastest  | Yolo-Fastest  | Yolo-Fastest MOT  |  Yolo-Fastest   |Yolo-Fastest   |Yolo-Fastest MOT   |
 | :---         |   :---:      |  :---:         |    :---:         | :---:         |  :---:           |:---:         | 
 | `input size`  | RGB 320x320x3    |RGB 320x320x3    | RGB 320x320x3    |RGB 256x256x3    |RGB 256x256x3 |RGB 256x256x3 |
 | `MOT`    | X    | X  | O    | X    | X  | O    |
 | `COCO AP50`    | 0.239    |0.239    |0.225 | 0.299 | 0.209   |0.196        |
 | `vela version`    | 3.9.0     |3.9.0    |3.9.0  |3.9.0  | 3.9.0    |3.9.0       |
-| `Optimise Size`    | X  |   O   | O    | X  |   O   | O    |
+| `Optimise SRAM Size by Vela`    | X  |   O   | O    | X  |   O   | O    |
 | `Total SRAM(KB)`    | 1200.91        |820.00      |820.00          | 768.91   |528.00| 528.00|
 | `Total Off-chip Flash(KB)`    | 505.31           |548.70       |429.70   |511.52   |545.64 | 432.28 |
 | `Total cycles  (cycles/batch)`    | 13216617           |13588601        |12803345  |9097664            |9224696        |8559640|
